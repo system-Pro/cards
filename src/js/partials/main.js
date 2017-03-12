@@ -144,14 +144,23 @@ $(function () {
                 {}
             }
           } else {
-            console.log('Double Tap.');
-            console.log('-----------');
+            if (!this.isPause) {
+              var date = new Date();
+              var str = 'Double Tap at ';
+              if (date.getHours() < 10) str += "0" + date.getHours();else str += date.getHours();
+              if (date.getMinutes() < 10) str += ":0" + date.getMinutes();else str += ":" + date.getMinutes();
+              if (date.getSeconds() < 10) str += ":0" + date.getSeconds();else str += ":" + date.getSeconds();
+              console.log(str);
+              console.log('-----------');
+            } else {
+              console.log('---db click in settings---');
+            }
           }
           this.isTimeOut = true;
           // setTimeout(_.bind(this.Timer, this), 200);
           setTimeout(function () {
             _this.isTimeOut = false; // `this` указывает на объект
-          }, 150);
+          }, 100);
         }.bind(this));
       }
     }, {
@@ -198,6 +207,8 @@ $(function () {
         this.correct = 0;
         this.left = this.to - (this.from - 1);
         this.wrong = 0;
+
+        this.$len.text(this.len + " (" + this.from + "-" + this.to + ")");
 
         this.$left.removeClass('card_variables-final');
         this.ShuffleData();
@@ -293,17 +304,17 @@ $(function () {
                 this.$settings.css('color', '#F39C49');
                 this.$btnOK.css({
                   'color': '#18BC9C',
-                  'background-color': 'white',
+                  'background-color': '#fdfdfd',
                   'border': '1px solid #95A5A6'
                 });
                 this.$btnOK.attr('data-action', 'settings-ok');
                 this.$btnNO.css({
                   'color': '#E74C3C',
-                  'background-color': 'white',
+                  'background-color': '#fdfdfd',
                   'border': '1px solid #95A5A6'
                 });
                 this.$btnNO.attr('data-action', 'settings');
-                this.$btnSP.css('background-color', 'white');
+                this.$btnSP.css('background-color', '#eee');
                 this.$btnSP.attr('data-action', '');
                 if (this.pauseSaveButton) {
                   this.$btnOK.parent().removeClass('notActive');
@@ -335,6 +346,9 @@ $(function () {
           case 'language':
             {
               event.preventDefault();
+              if (this.isPause) {
+                this.$settings.trigger('click');
+              }
               this.ChangeLanguage();
               this.GameStop();
               break;
@@ -363,7 +377,7 @@ $(function () {
           this.$answer.text(this.answer);
           this.$btnOK.parent().removeClass('notActive');
           this.$btnNO.parent().removeClass('notActive');
-          this.$btnSP.css('background-color', 'white');
+          this.$btnSP.css('background-color', '#eee');
           this.$btnSP.attr('data-action', '');
           // console.log('DrawInterface isAnswer=true');
         } else {
@@ -380,7 +394,7 @@ $(function () {
           this.$playedRoundsEN.text(this.playedRoundsEN);
           this.$playedRoundsRU.text(this.playedRoundsRU);
 
-          this.$len.text(this.len);
+          // this.$len.text(this.len + " (" + this.from + "-" + this.to + ")");
           this.$language.text(this.language);
           // console.log('DrawInterface isAnswer=false');
         }

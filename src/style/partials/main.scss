@@ -1,7 +1,8 @@
 .card{
   margin: 0 auto;
   text-align: center;
-  background: white;
+  // background: white;
+  background: #eee;
   border-radius: 6px;
   margin: 10px;
   border: 1px solid #95A5A6;
@@ -52,7 +53,9 @@
     margin: 15px auto 0;
     // padding-top: 15px;
     height: 310px;
-    background-color: white;
+    // background-color: white;
+    background-color: #fdfdfd;
+    // background-color: #fbfbfb;
     border-radius: 6px;
   }
 
@@ -92,6 +95,7 @@
     line-height: 25px;
     text-overflow: hidden;
     word-spacing: 5px;
+    text-transform: capitalize;
     &:first-letter{
       text-transform: uppercase;
     }
@@ -106,6 +110,7 @@
       font-size: 22px;
       word-spacing: 5px;
       text-overflow: hidden;
+      text-transform: capitalize;
       &:first-letter{
         text-transform: uppercase ;
       }
@@ -174,6 +179,7 @@
     width: 50px;
     border-radius: 6px;
     border: 1px solid #95A5A6;
+    background: #fdfdfd;
     @extend %inline;
     &:hover{
       cursor: pointer;
