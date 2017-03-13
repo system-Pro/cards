@@ -28,6 +28,7 @@ $(function () {
       this.isStart = false;
       this.isPause = false;
       this.isProgressBarReDraw = true;
+      this.isPicture = false;
       this.isTimeOut = false;
       //STATISTIC
       this.$len = $('.card_length');
@@ -45,6 +46,7 @@ $(function () {
       this.$answer = $('.card_answer');
       //CONTROLLERS
       this.$copy = $('.icon_copy-eng');
+      // this.$pictures = $('.fa-picture-o');
       this.$settings = $('.icon-settings');
 
       // BUTTON
@@ -64,6 +66,7 @@ $(function () {
       this.$btnOK.click(this.ClickHandler.bind(this));
       this.$btnNO.click(this.ClickHandler.bind(this));
 
+      // this.$pictures.click(this.ClickHandler.bind(this));
       this.$language.click(this.ClickHandler.bind(this));
       this.$settings.click(this.ClickHandler.bind(this));
       this.$progressbar.on('click', '.grid_item', this.ClickHandler.bind(this));
@@ -127,7 +130,7 @@ $(function () {
         else {
           if (!this.isPause) {
             let date = new Date();
-            let str = 'Double Tap at ';
+            let str = 'Fast click at ';
             if (date.getHours() < 10) str += "0" + date.getHours();
             else str += date.getHours();
             if (date.getMinutes() < 10) str += ":0" + date.getMinutes();
@@ -137,8 +140,8 @@ $(function () {
             console.log(str);
             console.log('-----------');
           }
-          else{
-            console.log('---db click in settings---');
+          else {
+            console.log('---fast click in settings---');
           }
         }
         this.isTimeOut = true;
@@ -176,6 +179,7 @@ $(function () {
 
       this.$settings.removeClass('notActive');
       this.$language.removeClass('notActive');
+      // this.$pictures.removeClass('notActive');
       this.$copy.removeClass('notActive');
       this.$playedRoundsRU.removeClass('notActive');
       this.$playedRoundsEN.removeClass('notActive');
@@ -314,6 +318,9 @@ $(function () {
             this.userSplit = parseInt($('.quantity').val());
             this.$settings.trigger('click');    //.bind(this);
             this.left = '';
+            if (this.isEng) {
+              this.ChangeLanguage();
+            }
             this.FirstInit();
             this.GameStop();
           }
@@ -324,6 +331,14 @@ $(function () {
           }
           break;
         }
+        // case 'pictures': {
+        //   // console.log("pictures");
+        //   if(!this.isPicture){
+        //     this.isPicture = true;
+
+        //   }
+        //   break;
+        // }
         case 'language': {
           event.preventDefault();
           if (this.isPause) {
@@ -342,7 +357,9 @@ $(function () {
           this.from = mas[0];
           this.to = mas[1];
           this.$settings.trigger('click');
-          // this.ShuffleData();
+          if (this.isEng) {
+              this.ChangeLanguage();
+            }
           this.GameStop();
         }
       }

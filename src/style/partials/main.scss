@@ -15,6 +15,20 @@
 
   &_line-title{
     margin: 0 auto;
+    // & i{
+    //   font-size: 16px;
+    //   color: #95A5A6;
+    //   position: absolute;
+    //   right: 56px;
+    //   top: 13px;
+    //   line-height: 30px;
+    //   width: 30px;
+    //   height: 30px;
+    //   &:hover{
+    //     cursor: pointer;
+    //     color: #18BC9C;
+    //   }
+    // }
   }
 
   &_length{
@@ -44,6 +58,7 @@
     height: 30px;
     &:hover{
       cursor: pointer;
+      color: #18BC9C;
     }
   }
   &_interface{
@@ -221,6 +236,9 @@
   width: 30px;
   height: 30px;
   justify-content: center;
+  &:hover{
+    color: #18BC9C;
+  }
 }
 
 .playedRounds, .playedRoundsEN, .playedRoundsRU{
