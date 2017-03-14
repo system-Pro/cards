@@ -1,12 +1,16 @@
 .card{
   margin: 0 auto;
   text-align: center;
+  // box-shadow: 2px 2px 4px 0px rgba(214,214,214,1);
+  // box-shadow:         3px 3px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.5);
   // background: white;
   background: #eee;
   border-radius: 6px;
   margin: 10px;
   border: 1px solid #95A5A6;
   font-size: 0;
+  // transition: 5 ease-in-out;
   &_wrap{
     margin: 0 auto;
     padding: 15px 10px 5px 10px;
@@ -72,6 +76,8 @@
     background-color: #fdfdfd;
     // background-color: #fbfbfb;
     border-radius: 6px;
+    // box-shadow: 2px 2px 4px 0px rgba(214,214,214,1);
+    box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.5);
   }
 
   &_variables{
@@ -143,6 +149,8 @@
     border-radius: 4px;
     border: none;
     background-color: #95A5A6;
+    // box-shadow: 2px 2px 4px 0px rgba(214,214,214,1);
+    box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.5);
     &:hover{
       cursor: pointer;
     }
@@ -168,6 +176,8 @@
       }
     }
     & i{
+      // box-shadow: 2px 2px 4px 0px rgba(214,214,214,1);
+      box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.5);
       background-color: #95A5A6;
       width: 98.5%;
       font-size: 48px;
@@ -179,6 +189,9 @@
     }
   }
 }
+.box_shadow{
+  box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.5);
+}
  .grid{
   display: flex;
   flex-flow: row wrap;
@@ -187,11 +200,16 @@
   width: 100%;
   margin: 0 auto;
   &_item{
+    // box-shadow: 2px 2px 4px 0px rgba(214,214,214,1);
+    // transition: 5 ease-in-out;
+    box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.5);
+    position: relative;
     color: #95A5A6;
     margin: 5px;
     font-size: 16px;
     height: 42px;
     width: 50px;
+    // padding-left: 6px;
     border-radius: 6px;
     border: 1px solid #95A5A6;
     background: #fdfdfd;
@@ -208,6 +226,29 @@
       background: #18BC9C;
       color: white;
     }
+  }
+  &_block{
+    // display: inlineblock;
+    // border: 1px solid red;
+    color: #95A5A6;
+    background: #f9f9f9;
+    border-top: 1px solid #95A5A6;
+    border-right: 1px solid #95A5A6;
+    border-radius: 25%;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.5);
+    // box-shadow: -5px 5px 5px 0px rgba(241,241,241,0.75);
+    // box-shadow: -2px 2px 4px 0px rgba(214,214,214,1);
+    // box-shadow: -2px 2px 10px 0px rgba(51,49,51,1);
+    // padding-top: 1px;
+    font-size: 10px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    // display: none;
   }
 }
 
@@ -273,6 +314,10 @@
 
 .notActive{
   display: none;
+  // transition: 5s ease-in-out;
+  // visibility: hidden;
+  // opacity: 0;
+  // transition: all 2s;
 }
 
 // .card_answer::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease; color: #95A5A6;}

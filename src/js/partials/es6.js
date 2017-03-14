@@ -262,13 +262,15 @@ $(function () {
             this.$btnOK.css({
               'color': '',
               'background-color': '',
-              'border': 'none'
+              'border': 'none',
+              'box-shadow': ''
             });
             this.$btnOK.attr('data-action', 'ok');
             this.$btnNO.css({
               'color': '',
               'background-color': '',
-              'border': 'none'
+              'border': 'none',
+              'box-shadow': ''
             });
 
             this.$btnSP.attr('data-action', 'sp');
@@ -277,6 +279,7 @@ $(function () {
               this.$btnOK.parent().addClass('notActive');
               this.$btnNO.parent().addClass('notActive');
               this.$btnSP.css('background-color', '');
+              this.$btnSP.css('box-shadow', '');
             }
           }
           else {
@@ -290,16 +293,19 @@ $(function () {
             this.$btnOK.css({
               'color': '#18BC9C',
               'background-color': '#fdfdfd',
-              'border': '1px solid #95A5A6'
+              'border': '1px solid #95A5A6',
+              'box-shadow': '0px 2px 5px 0px rgba(50, 50, 50, 0.5)'
             });
             this.$btnOK.attr('data-action', 'settings-ok');
             this.$btnNO.css({
               'color': '#E74C3C',
               'background-color': '#fdfdfd',
-              'border': '1px solid #95A5A6'
+              'border': '1px solid #95A5A6',
+              'box-shadow': '0px 2px 5px 0px rgba(50, 50, 50, 0.5)'
             });
             this.$btnNO.attr('data-action', 'settings');
             this.$btnSP.css('background-color', '#eee');
+            this.$btnSP.css('box-shadow', 'none');
             this.$btnSP.attr('data-action', '');
             if (this.pauseSaveButton) {
               this.$btnOK.parent().removeClass('notActive');
@@ -370,6 +376,7 @@ $(function () {
         this.$btnOK.parent().removeClass('notActive');
         this.$btnNO.parent().removeClass('notActive');
         this.$btnSP.css('background-color', '#eee');
+        this.$btnSP.css('box-shadow', 'none');
         this.$btnSP.attr('data-action', '');
         // console.log('DrawInterface isAnswer=true');
       }
@@ -379,6 +386,7 @@ $(function () {
         this.$btnNO.parent().addClass('notActive');
         this.$btnSP.css('background-color', '');
         this.$btnSP.attr('data-action', 'sp');
+        this.$btnSP.css('box-shadow', '');
 
         this.$correct.text(this.correct);
         this.$left.text(this.left);
@@ -410,7 +418,7 @@ $(function () {
           tmpFrom += this.split;
           tmpTo += this.split;
         }
-        $html = $("<div class='grid_item'><span>" + tmpFrom + "</span><span>" + tmpTo + "</span></div>").attr('data-action', 'progressbar').attr('data-part', tmpFrom);
+        $html = $("<div class='grid_item'><span>" + tmpFrom + "</span><span>" + tmpTo + "</span><p class='grid_block'>"+(i+1)+"</span></div>").attr('data-action', 'progressbar').attr('data-part', tmpFrom);
         if (i == 0) {
           $html.addClass('grid_item-active');
         }
